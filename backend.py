@@ -4,7 +4,7 @@ import sqlite3
 def connect():
     conn = sqlite3.connect("books.db")
     cur=conn.cursor()
-    cur.execute("CREATE TABLE IF NOT EXISTS book(id INTEGER PRIMARY KEY, title text, author text, year integer, isbn integer")
+    cur.execute("CREATE TABLE IF NOT EXISTS book(id INTEGER PRIMARY KEY, title text, author text, year integer, isbn integer)")
     conn.commit()
     conn.close()
 
@@ -49,8 +49,8 @@ def update(id, title, author, year, isbn):
 
 
 connect()
-insert("the sea", "john tablet", 1918, 93456541132)
-update(4, "the vampire", "john toon", 1123, 999999)
-print(view())
-print(view())
+#insert("the sea", "john tablet", 1918, 93456541132)
+#update(4, "the vampire", "john toon", 1123, 999999)
+# print(view())
+# print(view())
 print(search(author="john smith"))
