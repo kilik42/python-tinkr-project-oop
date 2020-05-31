@@ -49,8 +49,28 @@ list1.grid(row=2, column=0, rowspan=6, columnspan=2)
 sb1=Scrollbar(window)
 sb1.grid(row=2, column=2, rowspan=6)
 
+#adding list and scrollbar
 list1.configure(yscrollcommand=sb1.set)
 sb1.configure(command=list1.yview)
+
+#buttons
+b1=Button(window, text="View all", width=12)
+b1.grid(row=2, column=3)
+
+b1=Button(window, text="Search Entry", width=12)
+b1.grid(row=3, column=3)
+
+b1=Button(window, text="Add Entry", width=12)
+b1.grid(row=4, column=3)
+
+b1=Button(window, text="Update Selected", width=12)
+b1.grid(row=5, column=3)
+
+b1=Button(window, text="Delete Selected", width=12)
+b1.grid(row=6, column=3)
+
+b1=Button(window, text="Close", width=12)
+b1.grid(row=7, column=3)
 
 
 
