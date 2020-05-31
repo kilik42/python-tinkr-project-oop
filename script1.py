@@ -73,5 +73,4 @@ b1=Button(window, text="Close", width=12)
 b1.grid(row=7, column=3)
 
 
-
 window.mainloop()
