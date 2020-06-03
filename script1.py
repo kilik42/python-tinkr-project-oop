@@ -72,7 +72,7 @@ def get_selected_row(event):
     global selected_tuple
     index= list1.curselection()[0]
     selected_tuple = list1.get(index)
-    return (selected_tuple)
+    #return (selected_tuple)
     e1.delete(0,END)
     e1.insert(END, selected_tuple[1])
     y1.delete(0, END)
@@ -85,8 +85,8 @@ def get_selected_row(event):
 def delete_command():
     backend.delete(selected_tuple[0])
 
-
-
+def update_command():
+    backend.update(selected_tuple[0],title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
 
 
 #buttons
@@ -99,7 +99,7 @@ b1.grid(row=3, column=3)
 b1=Button(window, text="Add Entry", width=12, command=add_command)
 b1.grid(row=4, column=3)
 
-b1=Button(window, text="Update Selected", width=12)
+b1=Button(window, text="Update Selected", width=12,command = update_command)
 b1.grid(row=5, column=3)
 
 b1=Button(window, text="Delete Selected", width=12, command=delete_command)
