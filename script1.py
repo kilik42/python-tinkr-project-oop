@@ -89,6 +89,9 @@ def update_command():
     backend.update(selected_tuple[0],title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
 
 
+
+
+
 #buttons
 b1=Button(window, text="View all", width=12, command=view_command)
 b1.grid(row=2, column=3)
@@ -105,7 +108,7 @@ b1.grid(row=5, column=3)
 b1=Button(window, text="Delete Selected", width=12, command=delete_command)
 b1.grid(row=6, column=3)
 
-b1=Button(window, text="Close", width=12)
+b1=Button(window, text="Close", width=12,command=window.destroy)
 b1.grid(row=7, column=3)
 
 
