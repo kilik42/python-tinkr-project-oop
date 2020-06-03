@@ -70,18 +70,21 @@ def add_command():
                  (title_text.get(), author_text.get(), year_text.get(), isbn_text.get()))
 
 def get_selected_row(event):
-    global selected_tuple
-    index= list1.curselection()[0]
-    selected_tuple = list1.get(index)
-    #return (selected_tuple)
-    e1.delete(0,END)
-    e1.insert(END, selected_tuple[1])
-    y1.delete(0, END)
-    y1.insert(END, selected_tuple[2])
-    a1.delete(0, END)
-    a1.insert(END, selected_tuple[3])
-    isbn1.delete(0, END)
-    isbn1.insert(END, selected_tuple[4])
+    try:
+        global selected_tuple
+        index= list1.curselection()[0]
+        selected_tuple = list1.get(index)
+        #return (selected_tuple)
+        e1.delete(0,END)
+        e1.insert(END, selected_tuple[1])
+        y1.delete(0, END)
+        y1.insert(END, selected_tuple[2])
+        a1.delete(0, END)
+        a1.insert(END, selected_tuple[3])
+        isbn1.delete(0, END)
+        isbn1.insert(END, selected_tuple[4])
+    except IndexError:
+        pass
 
 def delete_command():
     backend.delete(selected_tuple[0])
