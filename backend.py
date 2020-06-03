@@ -36,7 +36,7 @@ def search(title="",author="", year="", isbn=""):
 def delete(id):
     conn = sqlite3.connect("books.db")
     cur = conn.cursor()
-    cur.execute("DELETE FROM book WHERE id=?", (id))
+    cur.execute("DELETE FROM book WHERE id=?", (id,))
     conn.commit()
     conn.close()
 
@@ -53,4 +53,4 @@ connect()
 #update(4, "the vampire", "john toon", 1123, 999999)
 # print(view())
 # print(view())
-print(search(author="john smith"))
+#print(search(author="john smith"))

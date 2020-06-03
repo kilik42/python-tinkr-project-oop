@@ -47,13 +47,9 @@ isbn1.grid(row=1, column=3)
 list1 =Listbox(window, height=6, width=35)
 list1.grid(row=2, column=0, rowspan=6, columnspan=2)
 
-#scrollbar
-sb1=Scrollbar(window)
-sb1.grid(row=2, column=2, rowspan=6)
 
-#adding list and scrollbar
-list1.configure(yscrollcommand=sb1.set)
-sb1.configure(command=list1.yview)
+
+
 
 
 def view_command():
@@ -72,6 +68,19 @@ def add_command():
     list1.insert(END,
                  (title_text.get(), author_text.get(), year_text.get(), isbn_text.get()))
 
+def get_selected_row(event):
+    global selected_tuple
+    index= list1.curselection()[0]
+    selected_tuple = list1.get(index)
+    return (selected_tuple)
+
+def delete_command():
+    backend.delete(selected_tuple[0])
+
+
+
+
+
 #buttons
 b1=Button(window, text="View all", width=12, command=view_command)
 b1.grid(row=2, column=3)
@@ -85,11 +94,20 @@ b1.grid(row=4, column=3)
 b1=Button(window, text="Update Selected", width=12)
 b1.grid(row=5, column=3)
 
-b1=Button(window, text="Delete Selected", width=12)
+b1=Button(window, text="Delete Selected", width=12, command=delete_command)
 b1.grid(row=6, column=3)
 
 b1=Button(window, text="Close", width=12)
 b1.grid(row=7, column=3)
 
+
+#scrollbar
+sb1=Scrollbar(window)
+sb1.grid(row=2, column=2, rowspan=6)
+
+#adding list and scrollbar
+list1.configure(yscrollcommand=sb1.set)
+sb1.configure(command=list1.yview)
+list1.bind('<<ListboxSelect>>', get_selected_row)
 
 window.mainloop()
