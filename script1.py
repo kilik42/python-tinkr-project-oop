@@ -3,6 +3,7 @@ from tkinter import *
 import backend
 
 window= Tk()
+window.wm_title("BookStore")
 
 
 l1 = Label(window, text ="Title")
